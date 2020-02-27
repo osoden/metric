@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#Createt by Denys Osokin
 
 import psutil
 import sys
