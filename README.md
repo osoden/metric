@@ -17,7 +17,7 @@ Script use psutil - cross-platform python library for retrieving information on 
 ```
 pip3 install psutil
 ```
-How to install [pip] (https://github.com/giampaolo/psutil/blob/master/INSTALL.rst)
+How to install [pip](https://github.com/giampaolo/psutil/blob/master/INSTALL.rst)
 
 ## Docerfile
 Buil and run docker container to get basic CPU and memory metric
