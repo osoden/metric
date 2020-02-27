@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import psutil
+import sys
+
+# Function to check cpu metric
+def cpu_stat():
+
+  cpum=['idle', 'user','guest', 'iowait', 'steal', 'system']
+  cpud=dict(psutil.cpu_times()._asdict())
+
+  for i in cpum:
+    print('system.cpu.' + i + ' ' + str(cpud[i]))
+
+# Function to check memory and swap
+def mem_stat():
+
+  mem_m=['total', 'used', 'free', 'shared']
+  swap_m=['total', 'used', 'free']
+  mem_d=dict(psutil.virtual_memory()._asdict())
+  swap_d=dict(psutil.swap_memory()._asdict())
+
+  for i in mem_m:
+    print( 'virtual ' + i + ' '+ str(mem_d[i]))
+  for i in swap_m:
+    print( 'swap ' + i + ' '+ str(swap_d[i]))
+
+#Check arguments
+if len(sys.argv) == 1:
+  print( 'You need to specify metric type to show: memory - "metric mem"; cpu - "metric cpu"')
+elif len(sys.argv) == 2:
+  if str(sys.argv[1]) == 'cpu':
+    cpu_stat()
+  elif str(sys.argv[1]) == 'mem':
+    mem_stat()
+  else:
+    print( "Wrong! Please use correct argument: mem or cpu")
+elif len(sys.argv) > 2:
+  print( "Only one argument, please: mem or cpu")
+    
